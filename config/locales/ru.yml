@@ -1,0 +1,23 @@
+ru:
+  activerecord:
+    attributes:
+      spree/scraper:
+        catalog_url: "URL Каталога"
+        taxons_selector: "Селектор таксонов"
+        subtaxons_selector: "Селектор подтаксонов"
+        products_selector: "Селектор товаров"
+        products_paging_url_suffix: "Суффикс ссылки при постраничном отображении товаров таксона (напр., '?page=')"
+        product_name_selector: "Селектор названия товара"
+        product_description_selector: "Селектор описания товара"
+        property_name_selector: "Селектор названия свойства"
+        property_value_selector: "Селектор значения свойства"
+  spree:
+    scrapers: "Парсеры"
+    new_scraper: "Новый парсер"
+    editing_scraper: "Редактирование парсера"
+    back_to_scrapers_list: "Назад к списку парсеров"
+    scrape: "Начать парсинг"
+    scraping_started: "Парсинг запущен"
+    admin:
+      tab:
+        scrapers: "Парсеры"

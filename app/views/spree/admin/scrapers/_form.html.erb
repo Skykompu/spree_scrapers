@@ -1,0 +1,53 @@
+<div class="row">
+  <div class="alpha twelve columns">
+    <%= f.field_container :catalog_url do %>
+      <%= f.label :catalog_url, Spree::Scraper.human_attribute_name(:catalog_url) %> <span class="required">*</span><br />
+      <%= f.text_field :catalog_url, :class => 'fullwidth title' %>
+      <%= f.error_message_on :catalog_url %>
+    <% end %>
+
+    <%= f.field_container :taxons_selector do %>
+      <%= f.label :taxons_selector %> <span class="required">*</span><br />
+      <%= f.text_field :taxons_selector, :class => 'fullwidth title' %>
+      <%= f.error_message_on :taxons_selector %>
+    <% end %>
+
+    <%= f.field_container :subtaxons_selector do %>
+      <%= f.label :subtaxons_selector %><br />
+      <%= f.text_field :subtaxons_selector, :class => 'fullwidth title' %>
+      <%= f.error_message_on :subtaxons_selector %>
+    <% end %>
+
+    <%= f.field_container :products_selector do %>
+      <%= f.label :products_selector %> <span class="required">*</span><br />
+      <%= f.text_field :products_selector, :class => 'fullwidth title' %>
+      <%= f.error_message_on :products_selector %>
+    <% end %>
+
+    <%= f.field_container :products_paging_url_suffix do %>
+      <%= f.label :products_paging_url_suffix %> <br />
+      <%= f.text_field :products_paging_url_suffix, :class => 'fullwidth title' %>
+      <%= f.error_message_on :products_paging_url_suffix %>
+    <% end %>
+
+    <%= f.field_container :product_description_selector do %>
+      <%= f.label :product_description_selector %> <span class="required">*</span><br />
+      <%= f.text_field :product_description_selector, :class => 'fullwidth title' %>
+      <%= f.error_message_on :product_description_selector %>
+    <% end %>
+
+    <%= f.field_container :property_name_selector do %>
+      <%= f.label :property_name_selector %><br />
+      <%= f.text_field :property_name_selector, :class => 'fullwidth title' %>
+      <%= f.error_message_on :property_name_selector %>
+    <% end %>
+
+    <%= f.field_container :property_value_selector do %>
+      <%= f.label :property_value_selector %><br />
+      <%= f.text_field :property_value_selector, :class => 'fullwidth title' %>
+      <%= f.error_message_on :property_value_selector %>
+    <% end %>
+
+  </div>
+
+</div>

@@ -1,0 +1,35 @@
+<% content_for :page_actions do %>
+  <li><%= button_link_to Spree.t("new_scraper"), new_object_url, :icon => 'icon-plus' %></li>
+<% end %>
+
+<% content_for :page_title do %>
+   <%= Spree.t("scrapers") %>
+<% end %>
+
+<table class="index">
+  <colgroup>
+    <col style="width: 80%" />
+    <col style="width: 20%" />
+  </colgroup>
+  <thead>
+    <tr>
+      <th><%= Spree::Scraper.human_attribute_name(:catalog_url) %></th>
+      <th class="actions"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @scrapers.each do |scraper| %>
+      <tr class="<%= cycle('odd', 'even') %>" id="<%= dom_id scraper %>">
+        <td>
+          <%= scraper.catalog_url %>
+        </td>
+        <td  class="actions">
+          <%= link_to_edit scraper, :no_text => true %>
+          <%= link_to_delete scraper, :no_text => true %>
+          <%= link_to '', scrape_admin_scraper_url(scraper), :"data-action" => "scrape", :class => "icon_link with-tip icon-play no-text", :title => Spree.t(:scrape) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
