@@ -1,3 +1,4 @@
+require 'sidekiq'
 module Spree
   class ProductScraperWorker
     include ::Sidekiq::Worker
