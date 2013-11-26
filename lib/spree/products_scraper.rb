@@ -63,8 +63,8 @@ module Spree
     def scrape_properties(product, product_page)
       property_value_elements = product_page.css(scraper.property_value_selector)
       product_page.css(scraper.property_name_selector).each_with_index do |property_element, index|
-        property = Spree::Property.where(name: property_element.text).first_or_create!(presentation: property_element.text)
-        product.product_properties.where(property_id: property.id).first_or_create!(value: property_value_elements[index].text)
+        property = Spree::Property.where(name: property_element.text.strip).first_or_create!(presentation: property_element.text.strip)
+        product.product_properties.where(property_id: property.id).first_or_create!(value: property_value_elements[index].text.strip)
       end
     end
   end
