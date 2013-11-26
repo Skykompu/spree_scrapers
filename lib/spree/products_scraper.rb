@@ -53,7 +53,7 @@ module Spree
       product_description_element = page.css(scraper.product_description_selector)
       product_description = product_description_element.text
       # don't know why but "first_or_create" not working
-      unless (product = taxon.products.where(name: product_name).first)
+      unless (product = Spree::Product.where(name: product_name).first)
         product = Spree::Product.create!(name: product_name, description: product_description, price: 1, shipping_category_id: Spree::ShippingCategory.first.id, sku: [taxon.id, SecureRandom.hex(2)].join)
         taxon.products << product
       end
