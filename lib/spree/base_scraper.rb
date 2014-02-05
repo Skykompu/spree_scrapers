@@ -36,7 +36,7 @@ module Spree
 
     def scrape_subtaxons(taxon, taxon_url)
       page = Nokogiri::HTML(open(URI.join(scraper.catalog_url, taxon_url)))
-      if (subtaxon_links = page.css(scraper.subtaxons_selector)).present?
+      if scraper.subtaxons_selector.present? && (subtaxon_links = page.css(scraper.subtaxons_selector)).present?
         subtaxon_links.each do |subtaxon_link|
           # don't know why but "first_or_create" not working
           unless (subtaxon = taxon.taxonomy.taxons.where(name: subtaxon_link.text).first)
