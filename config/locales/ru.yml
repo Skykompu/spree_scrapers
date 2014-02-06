@@ -9,6 +9,7 @@ ru:
         products_paging_url_suffix: "Суффикс ссылки при постраничном отображении товаров таксона (напр., '?page=')"
         product_name_selector: "Селектор названия товара"
         product_description_selector: "Селектор описания товара"
+        product_images_selector: "Селектор изображений товара"
         property_name_selector: "Селектор названия свойства"
         property_value_selector: "Селектор значения свойства"
   spree:

@@ -36,6 +36,12 @@
       <%= f.error_message_on :product_description_selector %>
     <% end %>
 
+    <%= f.field_container :product_images_selector do %>
+      <%= f.label :product_images_selector %><br />
+      <%= f.text_field :product_images_selector, :class => 'fullwidth title' %>
+      <%= f.error_message_on :product_images_selector %>
+    <% end %>
+
     <%= f.field_container :property_name_selector do %>
       <%= f.label :property_name_selector %><br />
       <%= f.text_field :property_name_selector, :class => 'fullwidth title' %>

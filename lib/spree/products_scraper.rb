@@ -58,6 +58,7 @@ module Spree
         taxon.products << product
       end
       scrape_properties(product, page)
+      scrape_images(product, product_url)
     end
 
     def scrape_properties(product, product_page)
@@ -66,6 +67,10 @@ module Spree
         property = Spree::Property.where(name: property_element.text.strip).first_or_create!(presentation: property_element.text.strip)
         product.product_properties.where(property_id: property.id).first_or_create!(value: property_value_elements[index].text.strip)
       end
+    end
+
+    def scrape_images(product, product_url)
+        ProductImagesScraperWorker.perform_async(product.id, scraper.id, product_url)
     end
   end
 end
