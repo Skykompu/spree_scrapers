@@ -54,6 +54,12 @@
       <%= f.error_message_on :property_value_selector %>
     <% end %>
 
+    <%= f.field_container :product_variants_selector do %>
+      <%= f.label :product_variants_selector %><br />
+      <%= f.text_field :product_variants_selector, :class => 'fullwidth title' %>
+      <%= f.error_message_on :product_variants_selector %>
+    <% end %>
+
   </div>
 
 </div>
