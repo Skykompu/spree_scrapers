@@ -13,6 +13,9 @@ ru:
         property_name_selector: "Селектор названия свойства"
         property_value_selector: "Селектор значения свойства"
         product_variants_selector: "Селектор вариантов товара"
+        product_variant_images_selector: "Селектор изображений вариантов"
+        product_variant_option_types_selector: "Селектор опций вариантов"
+        product_variant_option_values_selector: "Селектор значений опций вариантов"
   spree:
     scrapers: "Парсеры"
     new_scraper: "Новый парсер"

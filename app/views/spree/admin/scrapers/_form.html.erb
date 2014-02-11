@@ -59,6 +59,21 @@
       <%= f.text_field :product_variants_selector, :class => 'fullwidth title' %>
       <%= f.error_message_on :product_variants_selector %>
     <% end %>
+    <%= f.field_container :product_variant_images_selector do %>
+      <%= f.label :product_variant_images_selector %><br />
+      <%= f.text_field :product_variant_images_selector, :class => 'fullwidth title' %>
+      <%= f.error_message_on :product_variant_images_selector %>
+    <% end %>
+    <%= f.field_container :product_variant_option_types_selector do %>
+      <%= f.label :product_variant_option_types_selector %><br />
+      <%= f.text_field :product_variant_option_types_selector, :class => 'fullwidth title' %>
+      <%= f.error_message_on :product_variant_option_types_selector %>
+    <% end %>
+    <%= f.field_container :product_variant_option_values_selector do %>
+      <%= f.label :product_variant_option_values_selector %><br />
+      <%= f.text_field :product_variant_option_values_selector, :class => 'fullwidth title' %>
+      <%= f.error_message_on :product_variant_option_values_selector %>
+    <% end %>
 
   </div>
 

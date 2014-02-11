@@ -32,6 +32,7 @@ module Spree
         base_uri.path.split('/').last
       end
       image = product.images.create(:attachment => image_file, :alt => product.name + '-' + (image_index + 1).to_s)
+      image_file.close
     end
 
     protected
