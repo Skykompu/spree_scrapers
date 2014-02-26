@@ -44,8 +44,8 @@ module Spree
     end
 
     def scrape_options(variant, variant_element)
-      option_value_elements = variant_element.css(scraper.product_variant_option_values_selector).map(&:text).uniq.map(&:strip)
-      variant_element.css(scraper.product_variant_option_types_selector).map(&:text).uniq.map(&:strip).each_with_index do |option_name, index|
+      option_value_elements = variant_element.css(scraper.product_variant_option_values_selector).map(&:text).map(&:strip)
+      variant_element.css(scraper.product_variant_option_types_selector).map(&:text).map(&:strip).each_with_index do |option_name, index|
         if valid_option?(option_name)
           option_type = Spree::OptionType.where(name: option_name).first_or_create!(presentation: option_name)
           product.product_option_types.where(option_type_id: option_type.id).first_or_create!
