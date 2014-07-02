@@ -13,7 +13,7 @@ module Spree
 
     def scrape
       log.info "Parsing products of #{taxon.name}"
-      if scraper.products_paging_url_suffix.present?
+      if scraper.products_paging_url_suffix #.present?
         scrape_paginated_products
       else
         scrape_products
@@ -50,8 +50,11 @@ module Spree
     def scrape_product(product_url, product_name)
       log.info "Parsing product #{product_name}"
       page = Nokogiri::HTML(open(URI.join(scraper.catalog_url, product_url)))
-      product_description_element = page.css(scraper.product_description_selector)
-      product_description = product_description_element.text
+      product_description = nil
+      if scraper.product_description_selector.present?
+        product_description_element = page.css(scraper.product_description_selector)
+        product_description = product_description_element.text
+      end
       # don't know why but "first_or_create" not working
       unless (product = Spree::Product.where(name: product_name).first)
         product = Spree::Product.create!(name: product_name, description: product_description, price: 1, shipping_category_id: Spree::ShippingCategory.first.id, sku: [taxon.id, SecureRandom.hex(2)].join)
