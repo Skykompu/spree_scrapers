@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.description = 'Allows to scrape taxonomy tree and products from external sites by using configurable Scraper objects'
   s.required_ruby_version = '>= 1.9.3'
 
-  # s.author    = 'You'
+  s.author    = 'Igor Petrov'
   # s.email     = 'you@example.com'
   # s.homepage  = 'http://www.spreecommerce.com'
 
