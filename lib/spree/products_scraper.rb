@@ -26,9 +26,10 @@ module Spree
         if current_page > 1
             products_url = URI.join(scraper.catalog_url, taxon_url, scraper.products_paging_url_suffix + current_page.to_s)
         end
-        product_links = scrape_products(products_url)
-        current_page += 1
-      end while product_links.present?
+       log.info "Parsing products of page #{current_page}"
+       page = scrape_products(products_url)
+       current_page += 1
+      end while (page.css('.ctrlNext.no-active').length == 0)
     rescue OpenURI::HTTPError => e
         log.error "Error occured (at url #{products_url}): #{e.message}"
         return
@@ -44,7 +45,7 @@ module Spree
       product_links.each do |product_link|
         scrape_product(product_link[:href], product_link.text)
       end
-      product_links
+      page
     end
 
     def scrape_product(product_url, product_name)
