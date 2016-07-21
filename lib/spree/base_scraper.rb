@@ -31,7 +31,11 @@ module Spree
 
     def scrape_taxon(taxon, taxon_url)
       log.info "Parsing taxon #{taxon.name}"
-      scrape_subtaxons(taxon, taxon_url)
+      if scraper.subtaxons_selector.present?
+        scrape_subtaxons(taxon, taxon_url)
+      else
+        scrape_products(taxon, taxon_url)
+      end
     end
 
     def scrape_subtaxons(taxon, taxon_url)
